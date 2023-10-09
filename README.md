@@ -6,12 +6,15 @@ This repository is used to practice the labs from Prof. Chen-Yi Lee's IC Design 
 ## Practices
 * Practice01 - Simulation flow : [[spec](./Practices/Lab01_Practice.pdf)] [[design](./Practices/Pratcitce01/CORE.v)]
 * Practice02 - Complex Number Calculator : [[spec](./Practices/Practice02/Lab02_Practice.pdf)]
+* Practice03 - Vector Reverse Ordering : [[spec](./Practices/Practice03/Lab03_Practice.pdf)]
+* Practice04 - Vector Inner Product : [[spec](./Practices/Practice04/Lab04_Practice.pdf)]
+
 
 ## Labs
 * Lab01 - Supper MOSFET Calculator (SMC) : [[spec](./Labs/Lab01/Lab01_Exercise.pdf)] [[design](./Labs/Lab01/SMC.v)]
 * Lab02 - String Match Engine (SME) : [[spec](./Labs/Lab02/Lab02_Exercise.pdf)]
 * Lab03: Sudoku (SD) [[spec]]
-* Lab04: Artificial Neural Network (NN) [[spec]]
+* Lab04: Artificial Neural Network (NN) [[spec](./Labs/Lab04/Lab04_Exercise.pdf)]
 * Lab05: Matrix Computation (MC) [[spec]]
 * Lab06: CheckSum (CS) [[spec]]
 * Lab07: Polish Notation (PN) [[spec]]
