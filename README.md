@@ -4,22 +4,23 @@ This repository is used to practice the labs from Prof. Chen-Yi Lee's IC Design 
 ![iclab_outline](./iclab_outline.png)
 
 ## Practices
-* Lab01 - Simulation flow : [[spec](./Practices/Lab01_Practice.pdf)] [[design](./Practices/CORE.v)]
+* Practice01 - Simulation flow : [[spec](./Practices/Lab01_Practice.pdf)] [[design](./Practices/Pratcitce01/CORE.v)]
+* Practice02 - Complex Number Calculator : [[spec](./Practices/Practice02/Lab02_Practice.pdf)]
 
 ## Labs
-* Lab01 - Supper MOSFET Calculator (SMC) : [[spec](./Labs/Lab01/Lab01_Exercise_2021_fall.pdf)] [[design](./Labs/Lab01/SMC.v)]
-* Lab02 - String Match Engine (SME) : [spec]
-* Lab03: Sudoku (SD)
-* Lab04: Artificial Neural Network (NN)
-* Lab05: Matrix Computation (MC)
-* Lab06: CheckSum (CS)
-* Lab07: Polish Notation (PN)
-* Lab08: Series Processiong (SP)
-* Lab09: Happy Farm (HF)
-* Lab10: Coverage of Lab09 Happy Farm (HF)
-* Lab Bonus: Formal Verification
-* Lab11: Matrix Computation (MC)
-* Lab12: Artificial Neural Network APRII
+* Lab01 - Supper MOSFET Calculator (SMC) : [[spec](./Labs/Lab01/Lab01_Exercise.pdf)] [[design](./Labs/Lab01/SMC.v)]
+* Lab02 - String Match Engine (SME) : [[spec](./Labs/Lab02/Lab02_Exercise.pdf)]
+* Lab03: Sudoku (SD) [[spec]]
+* Lab04: Artificial Neural Network (NN) [[spec]]
+* Lab05: Matrix Computation (MC) [[spec]]
+* Lab06: CheckSum (CS) [[spec]]
+* Lab07: Polish Notation (PN) [[spec]]
+* Lab08: Series Processiong (SP) [[spec]]
+* Lab09: Happy Farm (HF) [[spec]]
+* Lab10: Coverage of Lab09 Happy Farm (HF) [[spec]]
+* Lab Bonus: Formal Verification [[spec]]
+* Lab11: Matrix Computation (MC) [[spec]]
+* Lab12: Artificial Neural Network APRII [[spec]]
 
 ## Reference
 * 2021-Fall IC Design Lab (ICLAB) : [link](https://www.lhlaib.com/course/2021-fall-iclab)
