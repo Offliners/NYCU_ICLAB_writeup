@@ -21,7 +21,7 @@ This repository is used to practice the labs from Prof. Chen-Yi Lee's IC Design 
 * Lab03: Knight’s Tour (KT) : [[spec]]
 * Lab04: Artificial Neural Network (NN) [[spec](./Labs/Lab04/Lab04_Exercise.pdf)]
 * Lab05: Template Matching with Image Processing (TMIP) [[spec](./Labs/Lab05/Lab05_Exercise.pdf)]
-* Lab06: CheckSum (CS) [[spec]] : [[spec](./Labs/Lab06/Lab06_Exercise.pdf)]
+* Lab06: Check Sum (CS) [[spec]] : [[spec](./Labs/Lab06/Lab06_Exercise.pdf)]
 * Lab07: Cross Domain Clock (CDC) : [[spec](./Labs/Lab07/Lab07_Exercise.pdf)]
 * Lab08: Series Processiong (SP) : [[spec](./Labs/Lab08/Lab08_Exercise.pdf)]
 * Lab09: Pokemon Simulation Game (PSG) : [[spec](./Labs/Lab09/Lab09_Exercise.pdf)]
