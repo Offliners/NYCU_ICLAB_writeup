@@ -1,4 +1,4 @@
-# NYCU ICLAB writeup
+# NYCU ICLAB writeup (2021 Fall)
 This repository is used to practice the labs from Prof. Chen-Yi Lee's IC Design Lab (ICLab) course (2021 Fall) at NYCU.
 
 ![iclab_outline](./iclab_outline.png)
