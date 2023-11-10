@@ -5,7 +5,7 @@ This repository is used to practice the labs from Prof. Chen-Yi Lee's IC Design 
 
 ## Practices
 * Practice01 - Simulation flow : [[spec](./Practices/Lab01_Practice.pdf)] [[design](./Practices/Practice01/CORE.v)]
-* Practice02 - Complex Number Calculator : [[spec](./Practices/Practice02/Lab02_Practice.pdf)]
+* Practice02 - Complex Number Calculator : [[spec](./Practices/Practice02/Lab02_Practice.pdf)] [[design](./Practices/Practice02/CNC.v)]
 * Practice03 - Vector Reverse Ordering : [[spec](./Practices/Practice03/Lab03_Practice.pdf)]
 * Practice04 - Vector Inner Product : [[spec](./Practices/Practice04/Lab04_Practice.pdf)]
 * Practice05 - Queue and Stack : [[spec](./Practices/Practice05/Lab05_Practice.pdf)]
