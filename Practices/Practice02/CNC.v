@@ -1,22 +1,3 @@
-//############################################################################
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//   (C) Copyright Laboratory System Integration and Silicon Implementation
-//   All Right Reserved
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//
-//   ICLAB 2018 Fall
-//   Lab02 Practice		: Complex Number Calculater
-//   Author     		: Ping-Yuan Tsai (bubblegame@si2lab.org)
-//
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//
-//   File Name   : CNC.v
-//   Module Name : CNC
-//   Release version : V1.0 (Release Date: 2018-09)
-//
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-//############################################################################
-
 module CNC(
     //Input Port
     clk,
@@ -28,20 +9,14 @@ module CNC(
     //Output Port
     OUT_VALID,
     OUT
-    );
+);
 
-//---------------------------------------------------------------------
-//   PORT DECLARATION
-//---------------------------------------------------------------------
 input           clk, rst_n, IN_VALID;
 input   [ 1:0]  MODE;
 input   [ 7:0]  IN;
 output          OUT_VALID;
 output  [16:0]  OUT;
 
-//---------------------------------------------------------------------
-//   PARAMETER DECLARATION
-//---------------------------------------------------------------------
 parameter s_idle = 3'd0; 
 parameter s_input = 3'd1;
 parameter s_add = 3'd2;
@@ -49,9 +24,6 @@ parameter s_sub = 3'd3;
 parameter s_mul = 3'd4;
 parameter s_output = 3'd6; 
 
-//---------------------------------------------------------------------
-//   WIRE AND REG DECLARATION
-//---------------------------------------------------------------------
 reg        OUT_VALID;
 reg [16:0] OUT;
 
@@ -66,19 +38,14 @@ wire       [16:0] ACC_OUT;
 reg signed  [8:0] ACC_A, ACC_B;
 reg signed [15:0] ACC_C;
 
-//---------------------------------------------------------------------
-//   RTL CODE
-//---------------------------------------------------------------------
-
-// FSM
-always @(posedge clk) begin
+always @ (posedge clk) begin
     if(!rst_n)
         current_state <= s_idle;
     else
         current_state <= next_state;
 end
 
-always @(*) begin
+always @ (*) begin
     case(current_state)
 		s_idle: if(IN_VALID) next_state = s_input;
 				else         next_state = s_idle;
@@ -103,7 +70,7 @@ always @(*) begin
     endcase
 end
 
-always @(posedge clk) begin
+always @ (posedge clk) begin
     if(!rst_n)
         cnt <= 2'b0;
     else
@@ -123,8 +90,7 @@ always @(posedge clk) begin
 		endcase
 end
 
-/////////// STORE INPUT ///////////
-always @(posedge clk) begin
+always @ (posedge clk) begin
     if(!rst_n)
         MODE_r <= 2'b0;
     else
@@ -133,10 +99,8 @@ always @(posedge clk) begin
 			default: MODE_r <= MODE_r;
 		endcase
 end
-/////////// First Part: Store B, C, D ///////////
-//Store values into registers B, C, and D
-//You can use counter to help or use shift register
-always @(posedge clk) begin
+
+always @ (posedge clk) begin
     if(!rst_n)
         A <= 8'b0;
     else
@@ -145,7 +109,8 @@ always @(posedge clk) begin
 			default: A <= A;
 		endcase
 end
-always @(posedge clk) begin
+
+always @ (posedge clk) begin
     if(!rst_n)
         B <= 8'b0;
     else
@@ -154,7 +119,8 @@ always @(posedge clk) begin
 			default: B <= B;
 		endcase
 end
-always @(posedge clk) begin
+
+always @ (posedge clk) begin
     if(!rst_n)
         C <= 8'b0;
     else
@@ -163,7 +129,8 @@ always @(posedge clk) begin
 			default: C <= C;
 		endcase
 end
-always @(posedge clk) begin
+
+always @ (posedge clk) begin
     if(!rst_n)
         D <= 8'b0;
     else
@@ -174,14 +141,9 @@ always @(posedge clk) begin
 		endcase
 end
 
-
-// ACCUMULATOR
 assign ACC_OUT = ACC_C + ACC_A * ACC_B;
 
-/////////// Second Part: Control Accumulator ///////////
-//Finish subtraction and multiplication part
-//E and F can store template or final value
-always @(*) begin
+always @ (*) begin
     case(current_state)
 		s_add: if(cnt==2'b0) ACC_C = A; else ACC_C = B;
 		s_sub: if(cnt==2'b0) ACC_C = A; else ACC_C = B;
@@ -194,7 +156,8 @@ always @(*) begin
 		default: ACC_C = 8'b0;
     endcase
 end
-always @(*) begin
+
+always @ (*) begin
     case(current_state)
 		s_add: if(cnt==2'b0) ACC_A = C; else ACC_A = D;
 		s_sub: if(cnt==2'b0) ACC_A = C; else ACC_A = D;
@@ -207,7 +170,8 @@ always @(*) begin
 		default: ACC_A = 8'b0;
     endcase
 end
-always @(*) begin
+
+always @ (*) begin
     case(current_state)
 		s_add: ACC_B = 8'b1;
 		s_sub: ACC_B = -1;
@@ -220,8 +184,7 @@ always @(*) begin
     endcase
 end
 
-
-always @(posedge clk) begin
+always @ (posedge clk) begin
     if(!rst_n)
         E <= 17'b0;
     else
@@ -235,7 +198,8 @@ always @(posedge clk) begin
 		default: E <= E;
     endcase
 end
-always @(posedge clk) begin
+
+always @ (posedge clk) begin
     if(!rst_n)
         F <= 17'b0;
     else
@@ -250,8 +214,7 @@ always @(posedge clk) begin
     endcase
 end
 
-// OUTPUT
-always @(posedge clk) begin
+always @ (posedge clk) begin
     if(!rst_n)
         OUT_VALID <= 1'b0;
     else
@@ -260,7 +223,8 @@ always @(posedge clk) begin
 		default: OUT_VALID <= 1'b0;
 		endcase
 end
-always @(posedge clk) begin
+
+always @ (posedge clk) begin
     if(!rst_n)
         OUT <= 17'b0;
     else
