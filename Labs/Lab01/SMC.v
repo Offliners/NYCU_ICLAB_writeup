@@ -76,9 +76,9 @@ assign n0 = lv3_n5;
 always @ (*) begin
   case(mode)
     2'b00 : out_n = n3 + n4 + n5;
-    2'b01 : out_n = 3'b011 * n3 + 3'b100 * n4 + 3'b101 * n5;
+    2'b01 : out_n = ((n3 << 1) + n3) + (n4 << 2) + ((n5 << 2) + n5);
     2'b10 : out_n = n0 + n1 + n2;
-    2'b11 : out_n = 3'b011 * n0 + 3'b100 * n1 + 3'b101 * n2;
+    2'b11 : out_n = ((n0 << 1) + n0) + (n1 << 2) + ((n2 << 2) + n2);
   endcase
 end
 
@@ -96,22 +96,24 @@ module Calculate(
 input [2:0] w, vgs, vds;
 output [7:0] id, gm;
 
-parameter vt = 3'b001;
+parameter vt = 3'b1;
 
-wire [2:0] w, vgs, vds;
-reg [7:0] id, gm;
+wire [2:0] w, vgs, vds, diff;
+reg [7:0] id, gm, w_vds;
 wire mode;
 
-assign mode = (vgs - vt > vds) ? 1'b1 : 1'b0; // 1: Triode mode, 0: Saturation mode
+assign diff = vgs - vt;
+assign mode = (diff > vds) ? 1'b1 : 1'b0; // 1: Triode mode, 0: Saturation mode
 
 always @ (*) begin
   if(mode == 1'b1) begin
-    id = w * (3'b010 * (vgs - vt) * vds - vds * vds) / 3'b011;
-    gm = 3'b010 * w * vds / 3'b011;
+    w_vds = w * vds;
+    id = (w_vds * ((diff << 1) - vds)) / 3'd3;
+    gm = (w_vds << 1) / 3'd3;
   end
   else begin
-    id = w * (vgs - vt) * (vgs - vt) / 3'b011;
-    gm = 3'b010 * w * (vgs - vt) / 3'b011;
+    id = (w * diff * diff) / 3'd3;
+    gm = (w * (diff << 1)) / 3'd3;
   end
 end
 
